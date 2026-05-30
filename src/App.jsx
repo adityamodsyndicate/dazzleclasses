@@ -17,6 +17,29 @@ function App() {
   const [adminUser, setAdminUser] = useState(JSON.parse(localStorage.getItem('adminUser')) || null);
   const [toast, setToast] = useState(null);
 
+  // Interactive Achievements Sliding Carousel - PW.Live Style
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const slides = [
+    { icon: "🏆", text: "Congratulations to our Python toppers securing 95%+ marks in standard board assessments!", badge: "Topper" },
+    { icon: "⚡", text: "New Batches for Advanced Excel and AutoCAD starting June 5th. Register today!", badge: "Batch Alert" },
+    { icon: "🎓", text: "ISO 9001:2015 Certified Coaching Center. Guaranteed practical industry standard syllabus.", badge: "Accredited" },
+    { icon: "💼", text: "100% Practical lab training focusing on job interview preparation and coding challenges.", badge: "Placements" }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlideIndex(prev => (prev + 1) % slides.length);
+  };
+  const prevSlide = () => {
+    setCurrentSlideIndex(prev => (prev - 1 + slides.length) % slides.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   // Setup theme
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -157,6 +180,21 @@ function App() {
           <div className="home-container animate-fade">
             <Hero setActiveTab={setActiveTab} />
             
+            {/* Interactive Achievements Sliding Carousel - PW.Live Style */}
+            <div className="carousel-wrapper">
+              <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>
+                <button type="button" className="carousel-controls-btn" onClick={prevSlide} aria-label="Previous Slide">‹</button>
+                <div className="carousel-slide animate-fade" key={currentSlideIndex}>
+                  <span style={{ fontSize: '1.4rem' }}>{slides[currentSlideIndex].icon}</span>
+                  <span style={{ fontSize: '0.95rem', fontWeight: '700' }}>{slides[currentSlideIndex].text}</span>
+                  <span className="status-badge Enrolled" style={{ fontSize: '0.7rem', padding: '2px 6px', marginLeft: '8px' }}>
+                    {slides[currentSlideIndex].badge}
+                  </span>
+                </div>
+                <button type="button" className="carousel-controls-btn" onClick={nextSlide} aria-label="Next Slide">›</button>
+              </div>
+            </div>
+            
             {/* Quick About & USP Section */}
             <section className="usp-section section-padding">
               <div className="container">
@@ -275,6 +313,18 @@ function App() {
           <span>{toast.message}</span>
         </div>
       )}
+
+      {/* Floating Doubt counseling Support Badge */}
+      <div 
+        className="floating-whatsapp-counsel" 
+        onClick={() => {
+          setActiveTab('student-portal');
+          window.scrollTo({ top: 300, behavior: 'smooth' });
+        }}
+      >
+        <span style={{ fontSize: '1.2rem' }}>💬</span>
+        <span>Counsel Support</span>
+      </div>
     </div>
   );
 }

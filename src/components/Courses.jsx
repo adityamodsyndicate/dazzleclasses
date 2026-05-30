@@ -153,6 +153,18 @@ function Courses({ courses, showTitle = true, showToast, onInquirySubmitted }) {
                   <span className="enrolls">👥 {studentsEnrolled}+ joined</span>
                 </div>
 
+                {/* Lead Instructor Details (Physics Wallah style) */}
+                <div className="course-instructor-badge">
+                  <span className="avatar-icon">👤</span>
+                  <span>
+                    {course.category === "Programming" 
+                      ? "Tech Lead: Ms. Nisha Harit & Team" 
+                      : (course.category === "Basic Computers" || course.category === "Professional Skills")
+                        ? "Lead Instructor: Ms. Nisha Harit & Panel"
+                        : "Panel of Subject Experts"}
+                  </span>
+                </div>
+
                 <p className="course-desc">{course.description}</p>
                 
                 <div className="course-card-footer">
@@ -170,7 +182,7 @@ function Courses({ courses, showTitle = true, showToast, onInquirySubmitted }) {
                       )}
                     </div>
                   </div>
-                  <div style={{ display: 'flex', gap: '8px' }}>
+                  <div className="card-actions-row">
                     <button 
                       className="btn btn-secondary btn-sm" 
                       onClick={() => setSelectedCourse(course)}

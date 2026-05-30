@@ -1,0 +1,192 @@
+{
+  "courses": [
+    {
+      "id": "basic-computer",
+      "title": "Basic Computer Course",
+      "duration": "3 Months",
+      "fee": "₹3,000",
+      "category": "Basic Computers",
+      "description": "Comprehensive grounding in computing fundamentals. Learn operating system structures, basic typing, internet protocols, safe browsing, email navigation, and general computer hardware awareness.",
+      "benefits": ["Hands-on training", "Individual computer access", "Basic certification exam", "ISO Certified curriculum"]
+    },
+    {
+      "id": "ms-office",
+      "title": "MS Office Suite",
+      "duration": "3 Months",
+      "fee": "₹3,000",
+      "category": "Basic Computers",
+      "description": "Master professional office software. Detailed modules covering MS Word (document processing), MS Excel (spreadsheets and basic analysis), MS PowerPoint (presentations), and Outlook.",
+      "benefits": ["Resume writing tasks", "Practical assignments", "Shortcut-key proficiency", "Mock assessments"]
+    },
+    {
+      "id": "python",
+      "title": "Python Programming",
+      "duration": "3 Months",
+      "fee": "₹6,000",
+      "category": "Programming",
+      "description": "Kickstart your programming career. Learn variables, data structures, conditional logic, loops, object-oriented concepts, exception handling, data storage, and complete functional projects.",
+      "benefits": ["Build 5 mini projects", "Code structure review", "Logic development focus", "100% Practical lab labs"]
+    },
+    {
+      "id": "java",
+      "title": "Java Technology",
+      "duration": "4 Months",
+      "fee": "₹7,500",
+      "category": "Programming",
+      "description": "Master robust systems programming. Coverage includes Core Java foundations, Object-Oriented Principles, Multi-threading, Exception handling, collection frameworks, and JDBC database connections.",
+      "benefits": ["Logic-based assignments", "OOPS design patterns", "Prepares for enterprise exams", "Expert-led sessions"]
+    },
+    {
+      "id": "c-cplusplus",
+      "title": "C | C++ Programming",
+      "duration": "3 Months",
+      "fee": "₹5,000",
+      "category": "Programming",
+      "description": "The fundamentals of computing. Master manual memory allocation, pointer arithmetic, procedural structures in C, and shift to Object Oriented systems, classes, templates, and inheritance in C++.",
+      "benefits": ["College syllabus alignment", "Data structures exercises", "Fast compilation basics", "Coding challenges"]
+    },
+    {
+      "id": "sql",
+      "title": "SQL Database",
+      "duration": "2 Months",
+      "fee": "₹4,000",
+      "category": "Programming",
+      "description": "Learn structured databases. Covers tables, primary/foreign keys, SELECT queries, filters, group functions, complex JOINS, subqueries, view creation, and execution plan optimization.",
+      "benefits": ["Design database schemas", "Query tuning exercises", "MySQL and PostgreSQL labs", "Backup and restore tutorials"]
+    },
+    {
+      "id": "adv-excel",
+      "title": "Advanced Excel",
+      "duration": "2 Months",
+      "fee": "₹4,500",
+      "category": "Professional Skills",
+      "description": "Elevate your analytical skills. Focuses on complex nested formulas, VLOOKUP/XLOOKUP, index-match combos, dynamic pivot tables, slicers, what-if tools, basics of macros, and rich dynamic dashboards.",
+      "benefits": ["Interactive dashboard design", "Business case study reviews", "Ready-to-use template assets", "High demand skill"]
+    },
+    {
+      "id": "tally",
+      "title": "Tally with GST",
+      "duration": "3 Months",
+      "fee": "₹6,000",
+      "category": "Professional Skills",
+      "description": "Professional accounting course. Learn double-entry bookkeeping, voucher entry (sales, purchase, payment), bank reconciliation statements, inventory sheets, CGST/SGST ledger, and returns generation.",
+      "benefits": ["Industry simulated accounting", "Tax invoice printing", "Audit report preparation", "Job-oriented placement coaching"]
+    },
+    {
+      "id": "autocad",
+      "title": "AutoCAD (2D & 3D)",
+      "duration": "3 Months",
+      "fee": "₹8,000",
+      "category": "Professional Skills",
+      "description": "Computer-Aided Drafting (CAD) system. Drafting structural engineering layouts, civil architecture blueprints, mechanical 3D parts, views, dimensioning, layers, blocks, and rendering models.",
+      "benefits": ["Engineering scale layouts", "Portfolio blueprints", "3D printing preparations", "Real project workflows"]
+    },
+    {
+      "id": "graphic-design",
+      "title": "Graphic Design Studio",
+      "duration": "4 Months",
+      "fee": "₹9,000",
+      "category": "Professional Skills",
+      "description": "Visual arts training. Acquire hands-on proficiency in Adobe Photoshop (image manipulation), Adobe Illustrator (vector artwork), and CorelDraw (print design and vector layouts).",
+      "benefits": ["Creative portfolio build", "Social media ad design", "Color theory & typography", "Print publishing setups"]
+    },
+    {
+      "id": "networking",
+      "title": "Computer Networking",
+      "duration": "3 Months",
+      "fee": "₹6,500",
+      "category": "Professional Skills",
+      "description": "Network administration basics. Study OSI models, TCP/IP structures, dynamic routing, ethernet cabling setups, network security concepts, IP subnets, and local server configurations.",
+      "benefits": ["Cisco Packet Tracer labs", "Cabling training session", "Firewall filtering setups", "Real server networking"]
+    },
+    {
+      "id": "video-editing",
+      "title": "Video Editing + FX",
+      "duration": "3 Months",
+      "fee": "₹8,000",
+      "category": "Professional Skills",
+      "description": "Learn modern post-production. Master timeline editing, multi-cam cuts, audio correction, typography overlay, transitions, color grading with Lumetri, and keyframe animations.",
+      "benefits": ["Premiere & After Effects", "Color grading labs", "Short video / Reel designs", "Royalty free asset pack"]
+    },
+    {
+      "id": "academic-degree",
+      "title": "JBT / B.Ed / LLB / Degree",
+      "duration": "Academic Year",
+      "fee": "On Inquiry",
+      "category": "Degrees & Tutoring",
+      "description": "Professional coaching and admission guidance for academic university programs. Streamlined classes, preparation strategy guides, and academic support for JBT, B.Ed, LLB, and Graduation paths.",
+      "benefits": ["Coaching by experienced professors", "Exam-centered notes", "Past years papers solver", "Flexible batch shifts"]
+    },
+    {
+      "id": "school-coaching",
+      "title": "Classes 6th to 12th Coaching",
+      "duration": "Monthly Course",
+      "fee": "On Inquiry",
+      "category": "Degrees & Tutoring",
+      "description": "Specialized coaching classes for school students (Classes 6th to 12th) across all streams (Science, Commerce, and Humanities/Arts). Individual focus to secure excellent marks.",
+      "benefits": ["Weekly performance tests", "Small batch sizes", "Doubt solving hours", "Science lab demonstrations"]
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-1",
+      "name": "Amit Sharma",
+      "email": "amit.sharma@example.com",
+      "phone": "9876543210",
+      "courseId": "python",
+      "status": "Pending",
+      "date": "2026-05-28",
+      "notes": "Looking for a weekend-only batch. Currently working as an operations analyst."
+    },
+    {
+      "id": "inq-2",
+      "name": "Priya Rani",
+      "email": "priya.rani@example.com",
+      "phone": "8708290123",
+      "courseId": "tally",
+      "status": "Contacted",
+      "date": "2026-05-29",
+      "notes": "Wants to know if GST online filing portal practicals are covered."
+    },
+    {
+      "id": "inq-3",
+      "name": "Rahul Verma",
+      "email": "rahul.verma@example.com",
+      "phone": "9588147111",
+      "courseId": "basic-computer",
+      "status": "Enrolled",
+      "date": "2026-05-25",
+      "notes": "Completed onboarding. Batch timings aligned for morning 9:00 AM."
+    },
+    {
+      "id": "inq-4",
+      "name": "Sonia Harit",
+      "email": "sonia.harit@example.com",
+      "phone": "8812345678",
+      "courseId": "adv-excel",
+      "status": "Enrolled",
+      "date": "2026-05-20",
+      "notes": "Enrolled from industry reference. Special interest in pivot tables and automated macros."
+    }
+  ],
+  "doubts": [
+    {
+      "id": "dbt-1",
+      "name": "Amit Sharma",
+      "email": "amit.sharma@example.com",
+      "message": "When will the next batch for Python programming commence in June?",
+      "date": "2026-05-29",
+      "status": "Answered",
+      "reply": "Hi Amit, the new batch starts on June 5th. Timings will be 10:00 AM to 12:00 PM on weekends."
+    },
+    {
+      "id": "dbt-2",
+      "name": "Karan Singh",
+      "email": "karan.singh@example.com",
+      "message": "Do you offer demo classes for Web Design / Graphic Designing courses?",
+      "date": "2026-05-30",
+      "status": "Pending",
+      "reply": ""
+    }
+  ]
+}

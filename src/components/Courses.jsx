@@ -109,41 +109,85 @@ function Courses({ courses, showTitle = true, showToast, onInquirySubmitted }) {
       {/* Courses Grid Layout */}
       {filteredCourses.length > 0 ? (
         <div className="courses-grid">
-          {filteredCourses.map((course, idx) => (
-            <div 
-              key={course.id} 
-              className="glass course-card animate-fade"
-              style={{ animationDelay: `${idx * 0.05}s` }}
-            >
-              <div className="course-card-header">
-                <span className="course-category-badge">{course.category}</span>
-                <span className="course-duration">{course.duration}</span>
-              </div>
-              <h3>{course.title}</h3>
-              <p className="course-desc">{course.description}</p>
-              
-              <div className="course-card-footer">
-                <div className="course-fee">
-                  <span className="fee-label">Course Fee</span>
-                  <span className="fee-val">{course.fee}</span>
+          {filteredCourses.map((course, idx) => {
+            // Edtech pricing calculation (Physics Wallah style)
+            const numericFee = parseInt(course.fee.replace(/[^0-9]/g, ''));
+            const hasNumericFee = !isNaN(numericFee) && numericFee > 0;
+            const originalFee = hasNumericFee ? Math.round((numericFee / 0.6) / 500) * 500 - 1 : null;
+            const discountPercent = hasNumericFee ? Math.round(((originalFee - numericFee) / originalFee) * 100) : 0;
+
+            // Consistent dynamic reviews & enrollments derived from ID
+            const rating = (4.7 + (course.id.length % 3) * 0.1).toFixed(1);
+            const reviewCount = 45 + (course.id.charCodeAt(0) % 20) * 8;
+            const studentsEnrolled = 450 + (course.id.charCodeAt(1 || 0) % 12) * 110;
+
+            // Structured ribbon flags
+            let ribbonText = null;
+            if (idx === 0 || idx === 4) ribbonText = "Best Seller";
+            else if (idx === 1 || idx === 6) ribbonText = "New Batch";
+            else if (course.category === "Programming") ribbonText = "Trending";
+
+            return (
+              <div 
+                key={course.id} 
+                className="glass course-card animate-fade"
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
+                {/* Trending Banner Ribbon */}
+                {ribbonText && <span className="card-ribbon">{ribbonText}</span>}
+
+                <div className="course-card-header">
+                  <span className="course-category-badge">{course.category}</span>
+                  <span className="course-duration">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ marginRight: '2px' }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    {course.duration}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button 
-                    className="btn btn-secondary btn-sm" 
-                    onClick={() => setSelectedCourse(course)}
-                  >
-                    Details
-                  </button>
-                  <button 
-                    className="btn btn-primary btn-sm" 
-                    onClick={() => openInquiryModal(course)}
-                  >
-                    Quick Join
-                  </button>
+
+                <h3>{course.title}</h3>
+                
+                {/* Star review and students enrollment counters */}
+                <div className="course-review-badge">
+                  <span>★ {rating}</span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: '500' }}>({reviewCount} reviews)</span>
+                  <span className="enrolls">👥 {studentsEnrolled}+ joined</span>
+                </div>
+
+                <p className="course-desc">{course.description}</p>
+                
+                <div className="course-card-footer">
+                  <div className="course-fee">
+                    <span className="fee-label">Syllabus Pricing</span>
+                    <div className="fee-pricing-row">
+                      {hasNumericFee ? (
+                        <>
+                          <span className="fee-original">₹{originalFee.toLocaleString('en-IN')}</span>
+                          <span className="fee-val">₹{numericFee.toLocaleString('en-IN')}</span>
+                          <span className="fee-discount-tag">{discountPercent}% OFF</span>
+                        </>
+                      ) : (
+                        <span className="fee-val" style={{ color: 'var(--secondary)' }}>{course.fee}</span>
+                      )}
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button 
+                      className="btn btn-secondary btn-sm" 
+                      onClick={() => setSelectedCourse(course)}
+                    >
+                      Syllabus
+                    </button>
+                    <button 
+                      className="btn btn-primary btn-sm" 
+                      onClick={() => openInquiryModal(course)}
+                    >
+                      Join Batch
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <div className="glass" style={{ textAlign: 'center', padding: '60px', borderRadius: 'var(--radius-lg)' }}>

@@ -135,6 +135,12 @@ function App() {
 
   return (
     <div className="app-layout">
+      {/* Dynamic Top Announcement Notice - PW.Live Style */}
+      <div className="admission-ticker">
+        <span className="badge">Admission Notice</span>
+        <span>🔥 Summer Intake Batches for Classes (June-July 2026) are filling fast! Secure up to 40% scholarship today!</span>
+      </div>
+
       {/* Sticky Top Header */}
       <Navbar 
         activeTab={activeTab} 

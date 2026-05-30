@@ -1407,25 +1407,16 @@ textarea.form-control {
 
 @media (max-width: 1024px) {
   .hero-grid {
-    grid-template-cols: 1fr;
-    gap: 40px;
-    text-align: center;
+    grid-template-cols: 1.15fr 0.85fr; /* Keep side-by-side on notebooks and tablets */
+    gap: 30px;
     padding-top: 40px;
+    align-items: start;
   }
   .hero-content h1 {
     font-size: 3rem;
   }
   .hero-content p {
-    margin: 0 auto 24px;
-  }
-  .hero-buttons {
-    justify-content: center;
-  }
-  .hero-search-console {
-    margin: 24px auto 0;
-  }
-  .glass-card-hero {
-    margin: 0 auto;
+    margin: 0 0 24px 0;
   }
   .portal-grid {
     grid-template-cols: 1fr;
@@ -1453,11 +1444,26 @@ textarea.form-control {
   .lookup-form-container {
     flex-direction: column;
   }
+}
+
+@media (max-width: 576px) {
+  .hero-grid {
+    grid-template-cols: 1fr; /* Stack vertically only on very small screens */
+    text-align: center;
+    gap: 40px;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
   .hero-search-console {
+    margin: 24px auto 0;
     flex-direction: column;
     width: 100%;
   }
   .hero-search-console button {
     width: 100%;
+  }
+  .glass-card-hero {
+    margin: 0 auto;
   }
 }

@@ -40,10 +40,45 @@ function Hero({ setActiveTab }) {
             </div>
           </div>
 
-          {/* Interactive Profile / Stat card */}
-          <div className="hero-visual animate-float" style={{ animationDuration: '6s' }}>
+          {/* Interactive Profile & Classroom Visual */}
+          <div className="hero-visual animate-float" style={{ animationDuration: '6s', display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', maxWidth: '440px' }}>
             <div className="hero-visual-bg"></div>
-            <div className="glass glass-card-hero">
+            
+            {/* The Classroom Learning Image - Physics Wallah Style */}
+            <div className="glass" style={{ 
+              width: '100%', 
+              height: '240px', 
+              borderRadius: 'var(--radius-md)', 
+              overflow: 'hidden', 
+              boxShadow: 'var(--shadow-lg)',
+              border: '1px solid var(--border-glass)',
+              position: 'relative'
+            }}>
+              <img 
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600" 
+                alt="Students learning in computer class programming, AutoCAD, Tally" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+                right: '0',
+                background: 'linear-gradient(to top, rgba(15,23,42,0.85) 0%, transparent 100%)',
+                padding: '12px 20px',
+                color: '#fff',
+                fontSize: '0.85rem',
+                fontWeight: '700',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <span style={{ color: 'var(--secondary)' }}>●</span>
+                Live Lab Practicals: Coding, AutoCAD & Tally
+              </div>
+            </div>
+
+            <div className="glass glass-card-hero" style={{ maxWidth: '100%', marginTop: '0' }}>
               <div className="profile-header">
                 <div className="profile-avatar-container">
                   <div className="profile-avatar">

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function Navbar({ activeTab, setActiveTab, theme, toggleTheme, adminToken, onLogout }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,16 +79,102 @@ function Navbar({ activeTab, setActiveTab, theme, toggleTheme, adminToken, onLog
             )}
           </button>
 
-          {/* Admin Logout Button or General Quick Inquiry button */}
-          {adminToken ? (
-            <button className="btn btn-secondary btn-sm" onClick={onLogout}>
-              Logout Admin
-            </button>
-          ) : (
-            <button className="btn btn-primary btn-sm" onClick={() => handleNavClick('student-portal')}>
-              Join Us
-            </button>
-          )}
+          {/* Unified Login Portal Dropdown Selector */}
+          <div style={{ position: 'relative' }}>
+            {adminToken ? (
+              <button className="btn btn-secondary btn-sm" onClick={onLogout}>
+                Logout Admin
+              </button>
+            ) : (
+              <button 
+                className="btn btn-primary btn-sm glow-btn" 
+                onClick={() => setLoginDropdownOpen(prev => !prev)}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <span>Login</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ transform: loginDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            )}
+
+            {/* Dropdown Floating Options Card */}
+            {loginDropdownOpen && !adminToken && (
+              <>
+                {/* Backdrop overlay to close when clicking outside */}
+                <div 
+                  onClick={() => setLoginDropdownOpen(false)}
+                  style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 998 }}
+                />
+                
+                <div className="glass login-dropdown-card animate-fade" style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 12px)',
+                  right: 0,
+                  width: '280px',
+                  background: 'var(--bg-glass)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border-glass)',
+                  padding: '12px',
+                  boxShadow: 'var(--shadow-lg)',
+                  zIndex: 999,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px'
+                }}>
+                  {/* Option 1: Student Portal */}
+                  <div 
+                    className="login-dropdown-item" 
+                    onClick={() => {
+                      handleNavClick('student-portal');
+                      setLoginDropdownOpen(false);
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'start',
+                      gap: '12px',
+                      padding: '10px',
+                      borderRadius: 'var(--radius-sm)',
+                      cursor: 'pointer',
+                      transition: 'var(--transition)'
+                    }}
+                  >
+                    <span style={{ fontSize: '1.3rem', marginTop: '2px' }}>👤</span>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontWeight: '750', fontSize: '0.95rem', color: 'var(--text-primary)' }}>Student Portal</span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: '1.3', marginTop: '2px' }}>Submit inquiries, track slots & ask doubts</span>
+                    </div>
+                  </div>
+
+                  {/* Divider line */}
+                  <div style={{ height: '1px', background: 'var(--border-glass)', margin: '4px 0' }}></div>
+
+                  {/* Option 2: Admin Portal */}
+                  <div 
+                    className="login-dropdown-item" 
+                    onClick={() => {
+                      handleNavClick('admin-portal');
+                      setLoginDropdownOpen(false);
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'start',
+                      gap: '12px',
+                      padding: '10px',
+                      borderRadius: 'var(--radius-sm)',
+                      cursor: 'pointer',
+                      transition: 'var(--transition)'
+                    }}
+                  >
+                    <span style={{ fontSize: '1.3rem', marginTop: '2px' }}>🛡️</span>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontWeight: '750', fontSize: '0.95rem', color: 'var(--text-primary)' }}>Admin Portal</span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: '1.3', marginTop: '2px' }}>Manage courses, review applications & Q&As</span>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
 
           {/* Hamburger Mobile Menu Toggle */}
           <button 

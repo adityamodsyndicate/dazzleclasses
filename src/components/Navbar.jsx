@@ -49,18 +49,6 @@ function Navbar({ activeTab, setActiveTab, theme, toggleTheme, adminToken, onLog
           >
             Courses offered
           </span>
-          <span 
-            className={`nav-link ${activeTab === 'student-portal' ? 'active' : ''}`} 
-            onClick={() => handleNavClick('student-portal')}
-          >
-            Student Panel
-          </span>
-          <span 
-            className={`nav-link ${activeTab === 'admin-portal' ? 'active' : ''}`} 
-            onClick={() => handleNavClick('admin-portal')}
-          >
-            Admin Panel {adminToken && <span style={{ color: 'var(--success)', fontSize: '0.7rem' }}>●</span>}
-          </span>
         </nav>
 
         {/* Global Action Buttons */}
@@ -224,20 +212,6 @@ function Navbar({ activeTab, setActiveTab, theme, toggleTheme, adminToken, onLog
             onClick={() => handleNavClick('courses')}
           >
             Courses offered
-          </span>
-          <span 
-            className={`nav-link ${activeTab === 'student-portal' ? 'active' : ''}`}
-            style={{ padding: '8px' }}
-            onClick={() => handleNavClick('student-portal')}
-          >
-            Student Panel
-          </span>
-          <span 
-            className={`nav-link ${activeTab === 'admin-portal' ? 'active' : ''}`}
-            style={{ padding: '8px' }}
-            onClick={() => handleNavClick('admin-portal')}
-          >
-            Admin Panel
           </span>
         </div>
       )}
